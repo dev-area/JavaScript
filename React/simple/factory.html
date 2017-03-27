@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  </head>
+  <body>
+    <div id="app"></div><br/>
+
+
+    <script>
+
+    var items = [
+      "item1",
+      "item2",
+      "item3",
+      "item4",
+      "item5",
+      "item6",
+    ];
+
+    var list = React.DOM.ul(
+      { className: "items" },
+        items.map((it, key) =>
+            React.DOM.li({key}, it)
+          )
+        );
+
+    ReactDOM.render(
+          list,
+          document.getElementById('app')
+        );
+
+
+
+
+    </script>
+  </body>
+</html>

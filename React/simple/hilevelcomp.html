@@ -1,0 +1,39 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>React tutorial</title>
+  <script src="https://fb.me/react-0.14.7.js"></script>
+  <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+
+  let BaseComp = (BasicComponent) => class extends React.Component {
+      render() {
+        return (
+          <div>
+            <BasicComponent msg={this.props.msgOK}/><br/>
+            <BasicComponent msg={this.props.msgWrong}/>
+          </div>
+        )
+      }
+    }
+
+    const Button = (props) => {
+      return (
+        <button >Click {props.msg}</button>
+      )
+    }
+
+    let ExtendedButton = BaseComp(Button);
+
+    ReactDOM.render(
+      <ExtendedButton msgOK="hello" msgWrong="bye"/>,
+      document.getElementById('app')
+    );
+
+  </script>
+</body>
+</html>

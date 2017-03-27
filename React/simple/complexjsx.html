@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+    const data = [
+  {
+    "name": "React JS",
+    "topics": [
+      { "name": "Overview", "hours": 1},
+      { "name": "Components", "hours": 3},
+      { "name": "JSX", "hours": 4},
+      { "name": "Databinding", "hours": 2},
+      { "name": "HTTP", "hours": 4},
+      { "name": "Routing", "hours": 2}
+    ],
+    "overview": [
+      "This course focus on implementing Single Page Application via React.js",
+      "technology. The course details the SPA architecture and details",
+      "about the different roles in client MVC design.",
+      "The course walks through the way of designing and constructing",
+      "a fully features SPA compliant web modules with React.js and covers",
+      "both basics and advanced features.",
+      ]
+  },
+  {
+    "name": "Angular 2",
+    "topics": [
+      { "name": "Overview", "hours": 1},
+      { "name": "Components", "hours": 3},
+      { "name": "Modules", "hours": 4},
+      { "name": "Services", "hours": 2},
+      { "name": "HTTP", "hours": 4},
+      { "name": "Routing", "hours": 2}
+    ],
+    "overview": [
+      "Angular 2 is a great JS framework",
+      "designed and developed by Google",
+      "This course focus on implementing Single Page Application via"
+    ]
+  }
+]
+
+const Course = ({ name, topics, overview }) =>
+    <section id={name.toLowerCase().replace(/ /g, "-")}>
+        <h1>{name}</h1>
+        <ul className="courses">
+            {topics.map((tp, i) =>
+                <li key={i}>{tp.name}</li>
+            )}
+        </ul>
+        <section className="overview">
+            <h2>Course Overview</h2>
+            {overview.map((line, i) =>
+                <p key={i}>{line}</p>
+            )}
+        </section>
+  </section>
+
+const Catalog = ({ title, courses }) =>
+    <article>
+        <header>
+            <h1>{title}</h1>
+        </header>
+        <div className="recipes">
+            {courses.map((cr, i) =>
+              <div class="c1">
+                <Course key={i} {...cr} /><br/>
+              </div>
+            )}
+        </div>
+    </article>
+
+
+ReactDOM.render(
+    <Catalog courses={data}
+          title="Our Courses" />,
+    document.getElementById("app")
+)
+    </script>
+  </body>
+</html>

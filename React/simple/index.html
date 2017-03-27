@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  </head>
+  <body>
+    <div id="app"></div><br/>
+    <div id="app2"></div>
+
+    <script>
+    ReactDOM.render(
+      React.createElement(
+        'h1',
+        null,
+        'Hello World!'
+      ),
+      document.getElementById('app')
+    );
+
+    var items = [
+      "item1",
+      "item2",
+      "item3",
+      "item4",
+      "item5",
+      "item6",
+    ];
+    ReactDOM.render(
+      React.createElement("ul", null,
+        items.map( (val,index) => React.createElement("li", {key:index}, val))
+          ),document.getElementById('app2'));
+
+        
+    </script>
+  </body>
+</html>

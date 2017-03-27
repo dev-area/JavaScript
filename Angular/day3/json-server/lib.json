@@ -1,0 +1,49 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "Name": "book1",
+      "Price": 123,
+      "rate": 3
+    },
+    {
+      "id": 2,
+      "Name": "book2",
+      "Price": 150,
+      "rate": 5
+    },
+    {
+      "id": 44,
+      "Name": "abcd",
+      "Price": 555,
+      "rate": 3
+    }
+  ],
+  "customers": [
+    {
+      "id": 10,
+      "Name": "avi",
+      "city": "haifa"
+    },
+    {
+      "id": 20,
+      "Name": "dani",
+      "city": "tel aviv"
+    },
+    {
+      "id": 30,
+      "Name": "yosi",
+      "city": "aco"
+    },
+    {
+      "id": 40,
+      "Name": "dina",
+      "city": "yafo"
+    },
+    {
+      "id": 50,
+      "Name": "rina",
+      "city": "haifa"
+    }
+  ]
+}

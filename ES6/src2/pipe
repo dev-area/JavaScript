@@ -1,0 +1,37 @@
+ins: Instructor[] =
+[
+{
+"Id": 100,
+"Name": "avi",
+"Price": 100,
+"rate": 3
+},
+{
+"Id": 200,
+"Name": "dani",
+"Price": 200,
+"rate": 5,
+},
+{
+"Id": 300,
+"Name": "rina",
+"Price": 150,
+"rate": 5,
+},
+{
+"Id": 400,
+"Name": "dina",
+"Price": 250,
+"rate": 4
+},
+];
+<table border='1' width='100%' *ngIf='ins && ins.length > 0'>
+<tbody>
+<tr *ngFor='let ins of ins'>
+<td> {{ins.Id}} </td>
+<td> {{ins.Name | uppercase}} </td>
+<td> {{ins.Price | currency:'ILS':true:'1.2-2'}} </td>
+<td> {{ins.rate * 186}} </td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,56 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>React tutorial</title>
+  <script src="https://fb.me/react-0.14.7.js"></script>
+  <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+  class FirstComponent extends React.Component{
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: props.name,
+        count: 0
+      };
+      this.click1 = this.click1.bind(this);
+    }
+
+
+    render() {
+      return (
+        <div>
+          <h1>Simple component {this.state.count}</h1>
+          <h2>Hello again! {this.state.name}</h2>
+
+          <MyButton click={this.click1} text="sample" />
+
+        </div>
+      )
+    }
+
+    click1(){
+      this.setState({
+        count: this.state.count + 10
+      });
+    }
+
+  }
+
+  const MyButton = (props) => {
+      return (
+        <button onClick={props.click}>{props.text}</button>
+      )
+  }
+
+  ReactDOM.render(
+    <FirstComponent name="liran" />,
+    document.getElementById('app')
+  );
+  </script>
+</body>
+</html>

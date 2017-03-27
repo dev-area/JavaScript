@@ -1,0 +1,31 @@
+<h1 ngClass="s1">
+  {{title}} 
+  num is {{num}}
+</h1>
+
+<comp5 [abc]='10' (onHighVal)="onCompClick($event)" ></comp5>
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/>
+
+<button type="button" class="btn btn-primary" (click)="onClick()" >click</button>
+
+<div [ngClass]="['alert', myvar ]" role="alert">
+  <strong>Well done!</strong> your login is {{username}}
+</div>
+
+
+<br/>
+<app-comp2><h3>Avi</h3></app-comp2>
+<br/>
+<comp4></comp4>
+
+
+<ul class="list-group">
+      <li *ngFor='let n of qarr' class="list-group-item">{{n.num1}} {{n.getOPChar()}} {{n.num2}} = </li>
+</ul>
