@@ -1,0 +1,119 @@
+﻿<head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class QuestionOP extends React.Component{
+            constructor(props) {
+                super(props);
+                this.getOpChar.bind(this);
+            }
+            render() {
+               
+               return (
+                <label>{this.getOpChar()}</label>
+                )
+            }
+            getOpChar()
+            {   
+                const {op} = this.props;
+                switch(parseInt(op)){
+                    case 1: return '+';
+                    case 2: return '-';
+                    case 3: return '*';
+                    case 4: return '/';
+                }
+            }
+        }
+
+        class MathQuestion extends React.Component{
+        constructor(props) {
+            super(props);
+            this.checkRes = this.checkRes.bind(this);
+            this.getOP = this.getOP.bind(this);
+        }
+        render() {
+            const {num1, num2} = this.props;
+            return (
+                <div>
+                    <label style={{margin:10}} ref="n1">{this.getNum('num1')}</label> <QuestionOP ref="qop" op={this.getOP()} /> 
+                    <label style={{margin:10}} ref="n2">{this.getNum('num2')}</label> = 
+                    <input style={{margin:10}} type="text" ref="t1"/>
+                    <button style={{margin:10}} onClick={this.checkRes}>Check</button>
+                    <label ref="res"></label>
+                </div>
+                )
+            }
+           getOP(){
+                    return Math.floor(Math.random() * 4) + 1;
+            }
+           getNum(num) {
+                    if(num in this.props) return this.props[num];
+                    return Math.floor(Math.random() * 100) + 1; 
+           }
+           checkRes() {
+                var r;
+                var n1 = parseInt(this.refs.n1.innerText);
+                var n2 = parseInt(this.refs.n2.innerText);
+            
+                switch(this.refs.qop.props.op){
+                    case 1: r = n1+n2;
+                            break;
+                    case 2: r = n1-n2;
+                            break;
+                    case 3: r = n1*n2;
+                            break;
+                    case 4: r = n1/n2;
+                            break;
+
+                }
+                console.log(this.refs);
+                 if(r ==  parseInt(this.refs.t1.value))
+                    this.refs.res.innerText = "OK";
+                 else
+                    this.refs.res.innerText = "Wrong";
+           }
+        }
+        class MathExam extends React.Component{
+                constructor(props) {
+                    super(props);
+                    this.checkExam = this.checkExam.bind(this);
+                    this.rows = [];
+                    
+                }
+                render() {
+                    const {num} = this.props;
+                    var num1=parseInt(num);
+                    
+                    for (var i = 0; i < num1; i++) {
+                    this.rows.push(
+                        <MathQuestion ref={'q'+ i} key={i}/>);
+                    }
+
+
+                    return (
+                            <div><button onClick={this.checkExam}>Check All</button>
+                            {this.rows}
+                            </div>
+                    )
+               }
+                
+               checkExam()
+                {
+                    
+                    for(let i=0;i < this.rows.length ;i++)
+                        this.refs['q'+i].checkRes();
+                }
+        }
+         ReactDOM.render(
+                <MathExam num="10" />,
+                    document.getElementById('app')
+            );
+    </script>
+</body>
+</html>
