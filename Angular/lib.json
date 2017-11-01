@@ -1,0 +1,80 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "Name": "The Hunger Games",
+      "Price": 123,
+      "rate": 3
+    },
+    {
+      "id": 2,
+      "Name": "Harry Potter",
+      "Price": 150,
+      "rate": 5
+    },
+    {
+      "id": 3,
+      "Name": "To Kill a Mockingbird",
+      "Price": 130,
+      "rate": 4
+    },
+    {
+      "id": 4,
+      "Name": "Animal Farm",
+      "Price": 120,
+      "rate": 3
+    },
+    {
+      "id": 5,
+      "Name": "Gone with the Wind",
+      "Price": 180,
+      "rate": 3
+    },
+    {
+      "id": 6,
+      "Name": "The Book Thief",
+      "Price": 220,
+      "rate": 4
+    },
+    {
+      "id": 7,
+      "Name": "Twilight",
+      "Price": 140,
+      "rate": 5
+    },
+    {
+      "id": 8,
+      "Name": "Pride and Prejudice",
+      "Price": 120,
+      "rate": 3
+    },
+
+  ],
+  "customers": [
+    {
+      "id": 10,
+      "Name": "avi",
+      "city": "haifa"
+    },
+    {
+      "id": 20,
+      "Name": "dani",
+      "city": "tel aviv"
+    },
+    {
+      "id": 30,
+      "Name": "yosi",
+      "city": "aco"
+    },
+    {
+      "id": 40,
+      "Name": "dina",
+      "city": "yafo"
+    },
+    {
+      "id": 50,
+      "Name": "rina",
+      "city": "haifa"
+    }
+  ]
+}
